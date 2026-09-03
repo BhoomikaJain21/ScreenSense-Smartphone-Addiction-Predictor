@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const API_ENDPOINT = "http://127.0.0.1:8000/predict";
+  const API_ENDPOINT = "https://screensense-api-esyo.onrender.com/predict";
 
   // Slider IDs mapping for live label updates
   const sliders = [
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } catch (error) {
       console.error("Prediction Request Failed:", error);
-      alert("Unable to reach the prediction server. Ensure your FastAPI service is running on http://127.0.0.1:8000");
+      alert("Unable to reach the prediction server. Please try again in a moment.");
     } finally {
       // Reset Loading State
       submitBtn.disabled = false;
