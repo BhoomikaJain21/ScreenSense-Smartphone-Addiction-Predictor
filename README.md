@@ -413,12 +413,11 @@ http://127.0.0.1:8000/docs
 
 # ☁️ Deployment
 
-The project is being prepared for deployment using **Render**.
+The project is deployed using **Render**, with the frontend and FastAPI backend hosted separately.
 
-For the FastAPI backend:
+### Backend — Render Web Service
 
-### Build Command
-
+**Build Command**
 ```text
 pip install -r requirements.txt
 ```
@@ -429,13 +428,27 @@ pip install -r requirements.txt
 uvicorn main:app --host 0.0.0.0 --port $PORT
 ```
 
-After deployment, the frontend API endpoint must be updated from the local URL:
+Deployed API
 
-```javascript
-http://127.0.0.1:8000/predict
+```text
+[http://127.0.0.1:8000/predict](https://screensense-api-esyo.onrender.com)
 ```
 
-to the deployed backend URL.
+the prediction endpoint is:
+
+```text
+POST /predict
+```
+
+Frontend — Render Static Site
+The frontend is deployed separately as a Render Static Site.
+The JavaScript frontend communicates with the deployed FastAPI backend through:
+
+``` text
+https://screensense-api-esyo.onrender.com/predict
+```
+
+This allows the deployed web application to send user inputs to the trained ML pipeline and display the returned prediction and probability.
 
 ---
 
