@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScreenSense | Machine Learning Smartphone Addiction Predictor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="3" ry="3"></rect>
+          <line x1="12" y1="18" x2="12.01" y2="18"></line>
+        </svg>
+        <span class="brand-name">ScreenSense</span>
+      </div>
+      <div class="nav-actions">
+        <span class="badge-ml">
+          <span class="pulse-dot"></span>
+          ML Powered
+        </span>
+        <a href="#methodology" class="nav-link">About Model</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <h1 class="hero-title">Understand Your Digital Habits.</h1>
+      <p class="hero-subtitle">Analyze your smartphone usage patterns with a machine learning model trained to identify potential addiction risk.</p>
+      <div class="disclaimer-chip">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        This tool provides a machine learning prediction and is not a medical diagnosis.
+      </div>
+    </header>
+
+    <!-- Main Workspace (Two Column Layout) -->
+    <div class="workspace">
+
+      <!-- Form Column -->
+      <section class="form-column">
+        <form id="predictionForm" autocomplete="off">
+          
+          <!-- Section 1: About You -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-step">01</span>
+              <h2>About You</h2>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="field-group">
+                <label>Gender</label>
+                <div class="segmented-control" id="genderSelect">
+                  <input type="radio" id="gender_female" name="gender" value="Female" checked>
+                  <label for="gender_female">Female</label>
+                  
+                  <input type="radio" id="gender_male" name="gender" value="Male">
+                  <label for="gender_male">Male</label>
+                  
+                  <input type="radio" id="gender_other" name="gender" value="Other">
+                  <label for="gender_other">Other</label>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label>Stress Level</label>
+                <div class="segmented-control" id="stressSelect">
+                  <input type="radio" id="stress_low" name="stress_level" value="Low">
+                  <label for="stress_low">Low</label>
+                  
+                  <input type="radio" id="stress_medium" name="stress_level" value="Medium" checked>
+                  <label for="stress_medium">Medium</label>
+                  
+                  <input type="radio" id="stress_high" name="stress_level" value="High">
+                  <label for="stress_high">High</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Daily Screen Usage -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-step">02</span>
+              <h2>Daily Screen Usage</h2>
+            </div>
+
+            <div class="sliders-stack">
+              
+              <!-- Slider 1 -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="daily_screen_time_hours">Daily Screen Time</label>
+                  <span class="slider-badge"><span id="val_daily_screen_time_hours">8.0</span> <span class="unit">hrs</span></span>
+                </div>
+                <input type="range" id="daily_screen_time_hours" min="0" max="24" step="0.5" value="8.0">
+              </div>
+
+              <!-- Slider 2 -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="social_media_hours">Social Media</label>
+                  <span class="slider-badge"><span id="val_social_media_hours">3.0</span> <span class="unit">hrs</span></span>
+                </div>
+                <input type="range" id="social_media_hours" min="0" max="24" step="0.5" value="3.0">
+              </div>
+
+              <!-- Slider 3 -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="gaming_hours">Gaming</label>
+                  <span class="slider-badge"><span id="val_gaming_hours">2.0</span> <span class="unit">hrs</span></span>
+                </div>
+                <input type="range" id="gaming_hours" min="0" max="24" step="0.5" value="2.0">
+              </div>
+
+              <!-- Slider 4 -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="work_study_hours">Work / Study Screen Time</label>
+                  <span class="slider-badge"><span id="val_work_study_hours">4.0</span> <span class="unit">hrs</span></span>
+                </div>
+                <input type="range" id="work_study_hours" min="0" max="24" step="0.5" value="4.0">
+              </div>
+
+              <!-- Slider 5 -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="weekend_screen_time">Weekend Screen Time</label>
+                  <span class="slider-badge"><span id="val_weekend_screen_time">10.0</span> <span class="unit">hrs</span></span>
+                </div>
+                <input type="range" id="weekend_screen_time" min="0" max="24" step="0.5" value="10.0">
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Section 3: Academic/Work Impact -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-step">03</span>
+              <h2>Impact Assessment</h2>
+            </div>
+            
+            <div class="field-group">
+              <label>Has smartphone usage negatively affected your work or academics?</label>
+              <div class="segmented-control toggle-impact">
+                <input type="radio" id="impact_yes" name="academic_work_impact" value="Yes" checked>
+                <label for="impact_yes">Yes</label>
+
+                <input type="radio" id="impact_no" name="academic_work_impact" value="No">
+                <label for="impact_no">No</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submitBtn" class="btn-primary">
+            <span class="btn-text">Analyze My Digital Habits</span>
+            <div class="btn-spinner hidden" id="btnSpinner"></div>
+          </button>
+        </form>
+      </section>
+
+      <!-- Results Column -->
+      <section class="results-column">
+        
+        <!-- Empty State -->
+        <div class="card result-card empty-state-card" id="emptyState">
+          <div class="radar-illustration">
+            <div class="radar-ring ring-1"></div>
+            <div class="radar-ring ring-2"></div>
+            <div class="radar-center">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="5" y="2" width="14" height="20" rx="3" ry="3"></rect>
+                <path d="M12 18h.01"></path>
+              </svg>
+            </div>
+          </div>
+          <h3>Your Analysis Will Appear Here</h3>
+          <p>Complete the assessment to generate your personalized machine learning prediction.</p>
+        </div>
+
+        <!-- Populated Results Content -->
+        <div class="card result-card results-active hidden" id="resultsContent">
+          
+          <div class="result-top">
+            <span class="result-header-label">ML Prediction Assessment</span>
+            
+            <!-- Circular Gauge -->
+            <div class="gauge-wrapper">
+              <svg class="gauge-svg" viewBox="0 0 120 120">
+                <circle class="gauge-track" cx="60" cy="60" r="52"></circle>
+                <circle class="gauge-fill" id="gaugeFill" cx="60" cy="60" r="52"></circle>
+              </svg>
+              <div class="gauge-data">
+                <span class="gauge-val" id="riskPercentage">0.00%</span>
+                <span class="gauge-sub">Predicted Addiction Risk</span>
+              </div>
+            </div>
+
+            <!-- Status Banner -->
+            <div class="status-banner" id="statusBanner">
+              <span class="status-title" id="statusTitle">Evaluating...</span>
+              <p class="status-explanation" id="statusExplanation"></p>
+            </div>
+          </div>
+
+          <div class="result-divider"></div>
+
+          <!-- Digital Habit Insights Grid -->
+          <div class="insights-section">
+            <h3>Digital Usage Breakdown</h3>
+            <div class="metrics-grid">
+              
+              <div class="metric-card">
+                <span class="metric-label">Recreational Usage</span>
+                <span class="metric-value" id="metricRecUsage">0.0 hrs/day</span>
+              </div>
+
+              <div class="metric-card">
+                <span class="metric-label">Recreational Screen Share</span>
+                <span class="metric-value" id="metricRecShare">0%</span>
+              </div>
+
+              <div class="metric-card">
+                <span class="metric-label">Weekend Difference</span>
+                <span class="metric-value" id="metricWeekendDiff">+0.0 hrs</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- Methodology Section -->
+    <footer class="methodology-section" id="methodology">
+      <div class="methodology-card">
+        <h2>How the Prediction Works</h2>
+        
+        <div class="pipeline-flow">
+          <div class="flow-step">
+            <span class="step-num">01</span>
+            <span class="step-name">Your Usage Data</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span class="step-num">02</span>
+            <span class="step-name">Data Preprocessing</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span class="step-num">03</span>
+            <span class="step-name">Machine Learning Pipeline</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span class="step-num">04</span>
+            <span class="step-name">XGBoost Model</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step highlight">
+            <span class="step-num">05</span>
+            <span class="step-name">Risk Prediction</span>
+          </div>
+        </div>
+
+        <p class="methodology-text">
+          The model processes numerical and categorical smartphone usage features through a preprocessing pipeline before generating a prediction.
+        </p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
