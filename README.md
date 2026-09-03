@@ -75,20 +75,20 @@ The deployed model uses the following eight features.
 
 | Column                    | What it tells us                                             | Kept? |
 | ------------------------- | ------------------------------------------------------------ | ----- |
-| `daily_screen_time_hours` | Overall smartphone screen time per day                       | ✅ Yes |
-| `social_media_hours`      | Daily time spent on social media                             | ✅ Yes |
-| `gaming_hours`            | Daily time spent gaming                                      | ✅ Yes |
-| `work_study_hours`        | Daily smartphone usage for work or study                     | ✅ Yes |
-| `weekend_screen_time`     | Smartphone screen time during weekends                       | ✅ Yes |
-| `gender`                  | Gender category of the user                                  | ✅ Yes |
-| `stress_level`            | Reported stress level                                        | ✅ Yes |
-| `academic_work_impact`    | Whether smartphone usage affects academic or work activities | ✅ Yes |
+| `daily_screen_time_hours` | Overall smartphone screen time per day                       | Yes |
+| `social_media_hours`      | Daily time spent on social media                             | Yes |
+| `gaming_hours`            | Daily time spent gaming                                      | Yes |
+| `work_study_hours`        | Daily smartphone usage for work or study                     | Yes |
+| `weekend_screen_time`     | Smartphone screen time during weekends                       | Yes |
+| `gender`                  | Gender category of the user                                  | Yes |
+| `stress_level`            | Reported stress level                                        | Yes |
+| `academic_work_impact`    | Whether smartphone usage affects academic or work activities | Yes |
 
 These features were used in the final model and exposed as inputs in the web application.
 
 ---
 
-# ✅ Why These Features Were Kept
+# Why These Features Were Kept
 
 The final features were selected after examining the dataset using **bar plots, histograms, box plots, and correlation analysis**, while also considering whether a feature could be practically collected from a user through the web application.
 
@@ -482,3 +482,9 @@ Interested in:
 * Python
 * Artificial Intelligence
 * Building end-to-end ML applications
+
+---
+
+## 🤖 AI Assistance
+
+The frontend UI design and initial frontend code were developed with AI assistance and integrated with the FastAPI backend as part of this project.
