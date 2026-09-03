@@ -363,7 +363,7 @@ Smartphone_Addiction/
 ## 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/BhoomikaJain21/ScreenSense-Smartphone-Addiction-Predictor
 cd Smartphone_Addiction
 ```
 
