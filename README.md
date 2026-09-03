@@ -428,25 +428,21 @@ pip install -r requirements.txt
 uvicorn main:app --host 0.0.0.0 --port $PORT
 ```
 
-Deployed API
+### Deployed API
 
-```text
-[http://127.0.0.1:8000/predict](https://screensense-api-esyo.onrender.com)
-```
+[https://screensense-api-esyo.onrender.com](https://screensense-api-esyo.onrender.com)
 
-the prediction endpoint is:
+### Prediction Endpoint
 
 ```text
 POST /predict
 ```
 
-Frontend — Render Static Site
+### Frontend — Render Static Site
 The frontend is deployed separately as a Render Static Site.
 The JavaScript frontend communicates with the deployed FastAPI backend through:
 
-``` text
-https://screensense-api-esyo.onrender.com/predict
-```
+[https://screensense-frontend.onrender.com](https://screensense-frontend.onrender.com)
 
 This allows the deployed web application to send user inputs to the trained ML pipeline and display the returned prediction and probability.
 
