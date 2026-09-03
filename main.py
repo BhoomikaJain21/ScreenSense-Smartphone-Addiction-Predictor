@@ -44,6 +44,3 @@ async def predict(data: PredictionInput):
         "prediction": prediction_label,
         "addiction_probability": round(float(addiction_probability)*100, 2)
     }
-
-
-print(model)
